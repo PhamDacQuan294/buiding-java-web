@@ -24,7 +24,7 @@ public class BuildingAPI {
 		List<BuildingDTO> result = buildingService.findAll(name, districtid);
 		return result;
 	}
-
+	// helo nhánh 2
 	public void valiDate(BuildingDTO buildingDTO) {
 		if (buildingDTO.getName() == null || buildingDTO.getName().equals("")) {
 			throw new FieldRequiredException("name is null");
