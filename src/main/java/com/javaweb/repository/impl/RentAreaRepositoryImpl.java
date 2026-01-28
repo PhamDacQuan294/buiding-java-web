@@ -13,28 +13,33 @@ import com.javaweb.repository.RentAreaRepository;
 import com.javaweb.repository.entity.RentAreaEntity;
 import com.javaweb.utils.ConnectionJDBCUtil;
 
-@Repository
-public class RentAreaRepositoryImpl implements RentAreaRepository{
+//@Repository
+//public class RentAreaRepositoryImpl implements RentAreaRepository{
+//
+//	@Override
+//	public List<RentAreaEntity> getValueByBuildingId(Long id) {
+//		String sql = "SELECT * FROM rentarea WHERE rentarea.buildingid = " + id;
+//		List<RentAreaEntity> rentAreas = new ArrayList<>();
+//		try (Connection conn =  ConnectionJDBCUtil.getConnection();
+//				Statement stmt = conn.createStatement();
+//				ResultSet rs = stmt.executeQuery(sql);) {
+//
+//			while (rs.next()) {
+//				RentAreaEntity areaEntity = new RentAreaEntity();
+//				areaEntity.setValue(rs.getString("value"));
+//				rentAreas.add(areaEntity);
+//			}
+//			System.out.println("Connected database successfully...");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//			System.out.println("Connected database failed...");
+//		}
+//		return rentAreas;
+//	}
+//
+//}
 
-	@Override
-	public List<RentAreaEntity> getValueByBuildingId(Long id) {
-		String sql = "SELECT * FROM rentarea WHERE rentarea.buildingid = " + id;
-		List<RentAreaEntity> rentAreas = new ArrayList<>();
-		try (Connection conn =  ConnectionJDBCUtil.getConnection();
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery(sql);) {
 
-			while (rs.next()) {
-				RentAreaEntity areaEntity = new RentAreaEntity();
-				areaEntity.setValue(rs.getString("value"));
-				rentAreas.add(areaEntity);
-			}
-			System.out.println("Connected database successfully...");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("Connected database failed...");
-		}
-		return rentAreas;
-	}
+public class RentAreaRepositoryImpl {
 
 }

@@ -1,6 +1,5 @@
 package com.javaweb.repository.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,20 +9,20 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "rentarea")
-public class RentAreaEntity {
-	
+@Table(name = "user_role")
+public class UserRoleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "value")
-	private String value;
-
 	@ManyToOne
-	@JoinColumn(name = "buildingid")
-	private BuildingEntity building;
+	@JoinColumn(name = "userid")
+	private UserEntity user;
 	
+	@ManyToOne
+	@JoinColumn(name = "roleid")
+	private RoleEntity role;
+
 	public Long getId() {
 		return id;
 	}
@@ -32,21 +31,20 @@ public class RentAreaEntity {
 		this.id = id;
 	}
 
-	public BuildingEntity getBuilding() {
-		return building;
+	public UserEntity getUser() {
+		return user;
 	}
 
-	public void setBuilding(BuildingEntity building) {
-		this.building = building;
+	public void setUser(UserEntity user) {
+		this.user = user;
 	}
 
-	public String getValue() {
-		return value;
+	public RoleEntity getRole() {
+		return role;
 	}
 
-	public void setValue(String value) {
-		this.value = value;
+	public void setRole(RoleEntity role) {
+		this.role = role;
 	}
-	
 	
 }
