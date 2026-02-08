@@ -52,6 +52,10 @@ public class BuildingEntity {
 	@Column(name = "brokerageFee")
 	private Long brokerageFee;
 	
+	@Column(name = "direction")
+	private String direction;
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "districtid")
 	private DistrictEntity district;
@@ -140,4 +144,10 @@ public class BuildingEntity {
 	public void setBrokerageFee(Long brokerageFee) {
 		this.brokerageFee = brokerageFee;
 	}
+	public String getDirection() {
+		return direction;
+	}
+	public void setDirection(String direction) {
+		this.direction = direction;
+	}	
 }

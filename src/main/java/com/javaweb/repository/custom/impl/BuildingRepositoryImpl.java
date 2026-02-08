@@ -1,4 +1,4 @@
-package com.javaweb.repository.impl;
+package com.javaweb.repository.custom.impl;
 
 import java.lang.reflect.Field;
 import java.sql.Connection;
@@ -16,18 +16,21 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Repository;
 
 import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.repository.BuildingRepository;
+import com.javaweb.repository.custom.BuildingRepositoryCustom;
 import com.javaweb.repository.entity.BuildingEntity;
 import com.javaweb.utils.ConnectionJDBCUtil;
 import com.javaweb.utils.NumberUntil;
 import com.javaweb.utils.StringUtil;
 
 @Repository
-public class JDBCBuildingRepositoryImpl implements BuildingRepository {
+@Primary
+public class BuildingRepositoryImpl implements BuildingRepositoryCustom {
 	@PersistenceContext
 	private EntityManager entityManager;
 	
@@ -110,14 +113,9 @@ public class JDBCBuildingRepositoryImpl implements BuildingRepository {
 	}
 
 	
-	@Override
+//	@Override
 	public List<BuildingEntity> findAll(BuildingSearchBuilder buildingSearchBuilder) {
-		StringBuilder sql = new StringBuilder(
-			    "SELECT b.id, b.name, b.districtid, b.street, b.ward, " +
-			    "b.numberofbasement, b.floorarea, b.rentprice, " +
-			    "b.managername, b.managerphonenumber, b.servicefee, b.brokeragefee " +
-			    "\nFROM building b "
-			);
+		StringBuilder sql = new StringBuilder("SELECT b.* FROM building b ");
 		joinTable (buildingSearchBuilder, sql);
 		StringBuilder where = new StringBuilder(" WHERE 1=1 ");
 		queryNomal(buildingSearchBuilder, where);
@@ -128,7 +126,7 @@ public class JDBCBuildingRepositoryImpl implements BuildingRepository {
 		return query.getResultList();
 	}
 
-	@Override
+//	@Override
 	public void DeleteById(Long id) {
 		// TODO Auto-generated method stub
 
