@@ -24,7 +24,7 @@ public class BuildingRepositoryImpl implements BuildingRepository{
 	public List<BuildingEntity> findAll(BuildingSearchBuilder buildingSearchBuilder) {
 		// TODO Auto-generated method stub
 		// JPQL : JPA Query Language
-//		String sql = "FROM BuildingEntity b WHERE b.id = 1";
+//		String sql = "FROM BuildingEntity b WHERE b.name like '%building%'";
 //		Query query = entityManager.createQuery(sql, BuildingEntity.class);
 		
 //		Sql Native
